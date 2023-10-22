@@ -1,4 +1,4 @@
-package com.minhaempresa.meuecommerce.model;
+package com.minhaempresa.meuecommerce.appcarrinho.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
