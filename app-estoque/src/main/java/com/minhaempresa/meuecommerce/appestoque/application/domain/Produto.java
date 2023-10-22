@@ -1,6 +1,7 @@
 package com.minhaempresa.meuecommerce.appestoque.application.domain;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

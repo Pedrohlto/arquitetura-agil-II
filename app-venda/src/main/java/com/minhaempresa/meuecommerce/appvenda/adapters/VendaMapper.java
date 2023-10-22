@@ -1,6 +1,7 @@
 package com.minhaempresa.meuecommerce.appvenda.adapters;
 
 import com.minhaempresa.meuecommerce.appvenda.adapters.dto.VendaDto;
+import com.minhaempresa.meuecommerce.appvenda.adapters.event.VendaEvent;
 import com.minhaempresa.meuecommerce.appvenda.adapters.out.repository.entidades.DadosPagamentoEntity;
 import com.minhaempresa.meuecommerce.appvenda.adapters.out.repository.entidades.ProdutoEntity;
 import com.minhaempresa.meuecommerce.appvenda.adapters.out.repository.entidades.VendaEntity;
@@ -17,7 +18,10 @@ import java.util.stream.Collectors;
 @Mapper
 public interface VendaMapper {
 
+
     VendaDto toDto(Venda venda);
+
+    VendaEvent toEvent(Venda venda);
     Venda toDomain(VendaDto vendaDTO);
 
     @Mapping(source = "produtos", target = "produtos", qualifiedByName = "mapProdutosEntity")

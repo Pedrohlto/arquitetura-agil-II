@@ -12,9 +12,11 @@ public class ReservaProdutoUseCase implements ReservaProdutoInputPort {
     @Autowired
     private ReservaRepositoryPort reservaRepositoryPort;
 
+
     @Override
     public Reserva reservar(Reserva reserva) {
 
+        if(reserva.getProdutos().isEmpty()) throw new RuntimeException("Reserva sem produtos");
         reserva.getProdutos().forEach(produto -> {
             var produtoRecuperado = reservaRepositoryPort.buscarProduto(produto.getId());
 
