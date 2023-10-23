@@ -14,7 +14,7 @@ public class Carrinho {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ProdutoCarrinho> produtos;
 
     @OneToOne
