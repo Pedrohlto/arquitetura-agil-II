@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "produto_carrinho")
 @Data
-public class ProdutoCarrinho {
+public class ProdutoCarrinho implements Serializable {
 
     @EmbeddedId
     private ProdutoCarrinhoId produtoCarrinhoId;

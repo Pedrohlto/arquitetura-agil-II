@@ -5,7 +5,9 @@ import com.minhaempresa.meuecommerce.appcarrinho.dto.CarrinhoDTO;
 import com.minhaempresa.meuecommerce.appcarrinho.dto.ProdutoDTO;
 import com.minhaempresa.meuecommerce.appcarrinho.mapper.CarrinhoControllerMapper;
 import com.minhaempresa.meuecommerce.appcarrinho.service.CarrinhoService;
+import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +23,7 @@ public class CarrinhoController {
     private CarrinhoControllerMapper carrinhoControllerMapper;
 
     @PostMapping("/produtos")
+    @CacheEvict( value="carrinho", key="#idCarinho")
     public ResponseEntity<CarrinhoDTO> inserirProduto(@RequestBody ProdutoDTO produto, @PathVariable(name = "id") String idCarinho) {
         var carrinho = carrinhoService.inserirProduto(idCarinho, produto);
         return ResponseEntity.ok(carrinhoControllerMapper.toDTO(carrinho));

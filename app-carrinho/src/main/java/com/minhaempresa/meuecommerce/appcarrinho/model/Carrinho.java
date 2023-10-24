@@ -3,12 +3,13 @@ package com.minhaempresa.meuecommerce.appcarrinho.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "carrinho")
 @Data
-public class Carrinho {
+public class Carrinho implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

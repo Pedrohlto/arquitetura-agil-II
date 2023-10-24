@@ -7,6 +7,7 @@ import com.minhaempresa.meuecommerce.appcarrinho.model.ProdutoCarrinho;
 import com.minhaempresa.meuecommerce.appcarrinho.repository.CarrinhoRepository;
 import com.minhaempresa.meuecommerce.appcarrinho.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,6 +31,9 @@ public class CarrinhoService {
         return carrinhoRepository.save(carrinho);
     }
 
+    @Cacheable(value = "carrinho",
+               key="#idCarinho",
+               cacheManager = "cacheManager5Segundos")
     public Carrinho listarProdutos(String idCarinho) throws InterruptedException {
         Thread.sleep(3000);
         return carrinhoRepository.findById(idCarinho).get();
