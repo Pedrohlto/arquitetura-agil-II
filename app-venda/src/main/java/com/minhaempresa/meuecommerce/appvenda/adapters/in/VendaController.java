@@ -28,7 +28,7 @@ public class VendaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public VendaDto criar(@RequestBody VendaDto vendaDTO) {
+    public VendaDto criar(@RequestBody VendaDto vendaDTO) throws InterruptedException {
         var venda = vendaMapper.toDomain(vendaDTO);
         return vendaMapper.toDto(criarVendaInputPort.criar(venda));
     }

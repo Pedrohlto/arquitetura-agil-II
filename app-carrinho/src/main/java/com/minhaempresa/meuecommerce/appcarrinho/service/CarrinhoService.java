@@ -33,7 +33,7 @@ public class CarrinhoService {
 
     @Cacheable(value = "carrinho",
                key="#idCarinho",
-               cacheManager = "cacheManager5Segundos")
+               cacheManager = "cacheManager1hora")
     public Carrinho listarProdutos(String idCarinho) throws InterruptedException {
         Thread.sleep(3000);
         return carrinhoRepository.findById(idCarinho).get();
