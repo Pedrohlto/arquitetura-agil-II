@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerKafkaReservaSucesso {
 
-    //@KafkaListener(topics = "estoque-sucesso", groupId = "app-venda")
+    @KafkaListener(topics = "estoque-sucesso")
     public void estoqueReservadoComSucesso(VendaEvent vendaEvent) {
         System.out.println("Estoque reservado com sucesso: " + vendaEvent.id());
     }
